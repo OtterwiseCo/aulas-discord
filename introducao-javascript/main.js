@@ -1,3 +1,5 @@
+const axios = require("axios");
+
 // Variáveis
 
 // var name = "joao";
@@ -179,7 +181,7 @@ let somatorio = 0;
 // MAP
 
 const numerosMultiplicados = numeros.map((item) => item * 2);
-console.log(numerosMultiplicados);
+// console.log(numerosMultiplicados);
 
 // FILTER E FIND
 
@@ -223,11 +225,137 @@ const ativo = pessoas.some((pessoa) => pessoa.ativo);
 // EVERY
 
 const todosEstaoAtivos = pessoas.every((pessoa) => pessoa.ativo);
-console.log(todosEstaoAtivos);
+// console.log(todosEstaoAtivos);
 
-//
+// JOIN
 
 const nomes = "joao pedro cleberson fernando";
 
-console.log(nomes.split(" ").join(","));
+// console.log(nomes.split(" ").join(","));
 // joao, pedro, Ingrid, Cleberson, Julio, Fernando
+
+// SORT
+const sorted = [11, 2, 22, 1].sort((a, b) => a - b);
+
+// console.log(sorted);
+
+// REDUCE
+
+const arrayReduzido = [1, 2, 3, 4].reduce((valorAnterior, valorAtual) => {
+  const soma = valorAnterior + valorAtual;
+  return soma;
+}, 0);
+
+const estudante = {
+  nome: "joao",
+  notas: [5, 8.5, 6.8],
+};
+
+const media = estudante.notas.reduce((acc, nota, index) => {
+  const arrayLength = estudante.notas.length - 1;
+  if (index === arrayLength)
+    return ((acc + nota) / estudante.notas.length).toFixed(2);
+  return acc + nota;
+}, 0);
+
+const somaDeNotas = (valores) =>
+  valores.reduce((acc, valor) => {
+    return acc + valor;
+  }, 0);
+
+const mediaDeNotas = (soma, total) => (soma / total).toFixed(2);
+
+const somaDeNotasDoJoao = somaDeNotas(estudante.notas);
+
+const mediaDoJoao = mediaDeNotas(somaDeNotasDoJoao, estudante.notas.length);
+
+// console.log(mediaDoJoao);
+
+// PROMISES
+
+const API_URL = "https://jsonplaceholder.typicode.com/";
+
+const dataFetch = () => {
+  const data = axios
+    .get(API_URL + "posts")
+    .then((data) => console.log(data))
+    .catch((erro) => console.log(erro))
+    .finally((data) => console.log("consumi da api"));
+};
+
+const dataFetch2 = async () => {
+  try {
+    const data = await axios.get(API_URL + "posts");
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    console.log("consumi da api");
+  }
+};
+
+// HTTP
+
+// GET - POST - PUT - PATCH - DELETE
+
+console.log(dataFetch2);
+
+// EXERCICIO
+
+//Calcular média de uma lista de alunos. Eles vão ter 3 notas com o mesmo peso e é necessário calcular
+//a média e inserir uma nova key no objetivo se ele foi aprovado. Levando em consideração que a média é 7
+
+const estudantes = [
+  {
+    nome: "joao",
+    notas: [7, 8.5, 6.8],
+  },
+  {
+    nome: "Gabriel",
+    notas: [5, 2, 9],
+  },
+  {
+    nome: "Mari",
+    notas: [1, 10, 4.8],
+  },
+  {
+    nome: "Matheusinho",
+    notas: [1, 3, 6.9],
+  },
+];
+
+const novoArrayDeEstudantes = estudantes.reduce((acc, estudante) => {
+  const media = estudante.notas.reduce((acc, nota, index) => {
+    const arrayLength = estudante.notas.length - 1;
+    if (index === arrayLength)
+      return ((acc + nota) / estudante.notas.length).toFixed(2);
+    return acc + nota;
+  }, 0);
+
+  if (media >= 7) {
+    return [
+      ...acc,
+      {
+        ...estudante,
+        aprovado: true,
+      },
+    ];
+  }
+  return [
+    ...acc,
+    {
+      ...estudante,
+      aprovado: false,
+    },
+  ];
+}, []);
+
+const foiAprovado = (nota) => nota >= 7;
+
+const novoArrayDeEstudantes2 = estudantes.map((estudante) => {
+  const somaDeNotasDoEstudante = somaDeNotas(estudante.notas);
+  const media = mediaDeNotas(somaDeNotasDoEstudante, estudante.notas.length);
+  return { ...estudante, aprovado: foiAprovado(media) };
+});
+
+console.log(novoArrayDeEstudantes);
