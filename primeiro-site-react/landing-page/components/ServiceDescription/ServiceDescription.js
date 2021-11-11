@@ -1,30 +1,18 @@
 import React from "react";
-import styled from "styled-components";
+import { Background, Title, Description, Link } from "./styles";
 
 function ServiceDescription(props) {
+  const { title, description, link, color } = props;
+
   return (
     <Background>
-      <Title>{props.title}</Title>
-      <Description>{props.description}</Description>
-      <a>LEARN MORE</a>
+      <Title>{title}</Title>
+      <Description>{description}</Description>
+      <Link color={color} href={link}>
+        LEARN MORE
+      </Link>
     </Background>
   );
 }
-
-const Background = styled.div`
-  background-color: hsl(51, 100%, 49%, 0.12);
-  overflow: hidden;
-  padding: 5rem;
-`;
-
-const Title = styled.h2`
-  font-family: "Barlow", serif;
-  font-size: 3rem;
-  font-weight: 900;
-`;
-
-const Description = styled.p`
-  font-family: "Barlow", serif;
-`;
 
 export default ServiceDescription;
