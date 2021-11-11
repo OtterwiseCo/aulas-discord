@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Header from "components/Header/Header";
 import ServiceDescription from "components/ServiceDescription/ServiceDescription";
 import ImageCard from "components/ImageCard/ImageCard";
+import TestimonialsSection from "components/TestimonialsSection/TestimonialsSection";
+import ImagesSection from "components/ImagesSection/ImagesSection";
 
 export default function Home() {
   return (
@@ -40,6 +42,8 @@ export default function Home() {
           color="hsl(198, 62%, 26%)"
         />
       </Container>
+      <TestimonialsSection />
+      <ImagesSection />
     </Fragment>
   );
 }
