@@ -5,6 +5,7 @@ import ServiceDescription from "components/ServiceDescription/ServiceDescription
 import ImageCard from "components/ImageCard/ImageCard";
 import TestimonialsSection from "components/TestimonialsSection/TestimonialsSection";
 import ImagesSection from "components/ImagesSection/ImagesSection";
+import Footer from "components/Footer/Footer";
 
 export default function Home() {
   return (
@@ -44,6 +45,7 @@ export default function Home() {
       </Container>
       <TestimonialsSection />
       <ImagesSection />
+      <Footer />
     </Fragment>
   );
 }

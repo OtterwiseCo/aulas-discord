@@ -1,8 +1,10 @@
 import { Wrapper, Content, Title } from "./styles";
+import Navbar from "components/Navbar/Navbar";
 
 function Header() {
   return (
     <Wrapper>
+      <Navbar />
       <Content>
         <Title>WE ARE CREATIVES</Title>
         <svg width="36" height="114" xmlns="http://www.w3.org/2000/svg">

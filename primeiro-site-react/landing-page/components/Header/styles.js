@@ -23,9 +23,9 @@ export const Wrapper = styled.div`
 export const Title = styled.h1`
   color: white;
   text-align: center;
-  margin-top: 10rem;
+  margin-top: 3rem;
   margin-bottom: 6rem;
-  font-size: 5rem;
+  font-size: 4rem;
   letter-spacing: 0.8rem;
   font-family: "Fraunces", serif;
 `;
