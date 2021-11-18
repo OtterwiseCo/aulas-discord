@@ -16,3 +16,9 @@ a {
 * {
   box-sizing: border-box;
 }
+
+@media screen and (max-width: 1024px) {
+  html, body {
+    font-size: 14px;
+  }
+}

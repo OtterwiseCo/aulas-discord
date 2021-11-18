@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Background = styled.div(
-  (props) => `
-    background-image: url(${props.backgroundImage});
+  ({ backgroundImage, minHeight = [], width = [] }) => `
+    background-image: url(${backgroundImage});
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -12,6 +12,13 @@ export const Background = styled.div(
     justify-content: flex-end;
     align-items: center;
     padding: 2rem;
+    ${minHeight[0] ? `min-height: ${minHeight[0]};` : ""}
+    ${width[0] ? `width: ${width[0]};` : ""}
+    
+    @media (min-width: 1024px) {
+      ${minHeight[1] ? `min-height: ${minHeight[1]};` : ""}
+      ${width[1] ? `width: ${width[1]};` : ""}
+    }
   `,
 );
 
@@ -26,8 +33,10 @@ export const Title = styled.h2(
 export const Description = styled.p(
   (props) => `
     font-family: "Barlow", serif;
-    padding: 0 7.5rem;
     text-align: center;
     color: ${props.color};
+    @media (min-width: 1024px) {
+      padding: 0 7.5rem;
+    }
   `,
 );

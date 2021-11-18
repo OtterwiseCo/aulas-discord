@@ -25,7 +25,12 @@ export const Title = styled.h1`
   text-align: center;
   margin-top: 3rem;
   margin-bottom: 6rem;
-  font-size: 4rem;
-  letter-spacing: 0.8rem;
+  font-size: 3rem;
+  letter-spacing: 0.5rem;
   font-family: "Fraunces", serif;
+
+  @media (min-width: 1024px) {
+    font-size: 4rem;
+    letter-spacing: 0.8rem;
+  }
 `;
