@@ -12,12 +12,12 @@ export const Background = styled.div(
     justify-content: flex-end;
     align-items: center;
     padding: 2rem;
-    ${minHeight[0] ? `min-height: ${minHeight[0]};` : ""}
-    ${width[0] ? `width: ${width[0]};` : ""}
+    ${minHeight && minHeight[0] ? `min-height: ${minHeight[0]};` : ""}
+    ${width && width[0] ? `width: ${width[0]};` : ""}
     
     @media (min-width: 1024px) {
-      ${minHeight[1] ? `min-height: ${minHeight[1]};` : ""}
-      ${width[1] ? `width: ${width[1]};` : ""}
+      ${minHeight && minHeight[1] ? `min-height: ${minHeight[1]};` : ""}
+      ${width && width[1] ? `width: ${width[1]};` : ""}
     }
   `,
 );
@@ -36,7 +36,7 @@ export const Description = styled.p(
     text-align: center;
     color: ${props.color};
     @media (min-width: 1024px) {
-      padding: 0 7.5rem;
+      max-width: 380px;
     }
   `,
 );

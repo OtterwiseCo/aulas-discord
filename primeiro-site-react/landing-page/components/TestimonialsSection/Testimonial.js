@@ -19,7 +19,10 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  min-height: 400px;
+  min-height: 350px;
+  @media (min-width: 1024px) {
+    min-height: 400px;
+  }
   padding: 1.4rem;
 `;
 

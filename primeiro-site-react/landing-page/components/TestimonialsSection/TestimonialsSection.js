@@ -28,7 +28,7 @@ const data = [
 
 const TestimonialsSection = () => {
   return (
-    <Section>
+    <Section id="testimonials">
       <Title>CLIENT TESTIMONIALS</Title>
       <Row>
         {data.map((person, index) => (
@@ -40,22 +40,34 @@ const TestimonialsSection = () => {
 };
 
 const Section = styled.section`
-  padding: 100px 0;
+  padding: 50px 10px;
+  @media (min-width: 1024px) {
+    padding: 100px 0;
+  }
 `;
 
 const Row = styled.div`
   display: flex;
   justify-content: space-around;
-  padding: 50px 160px 0 160px;
+  flex-direction: column;
+  @media (min-width: 1024px) {
+    padding: 50px 160px 0 160px;
+    flex-direction: row;
+  }
 `;
 
 const Title = styled.h2`
   font-family: "Fraunces", serif;
-  letter-spacing: 5.7px;
+  letter-spacing: 0.356rem;
   color: #47525d6b;
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 900;
+  padding-bottom: 27.6px;
+  @media (min-width: 1024px) {
+    padding-bottom: 0;
+    font-size: 1.3rem;
+  }
 `;
 
 export default TestimonialsSection;

@@ -3,18 +3,34 @@ import ImageCard from "components/ImageCard/ImageCard";
 
 function ImagesSection() {
   return (
-    <Section>
-      <ImageCard backgroundImage="assets/images/image-gallery-milkbottles.jpg" />
-      <ImageCard backgroundImage="assets/images/image-gallery-orange.jpg" />
-      <ImageCard backgroundImage="assets/images/image-gallery-cone.jpg" />
-      <ImageCard backgroundImage="assets/images/image-gallery-sugarcubes.jpg" />
+    <Section id="projects">
+      <Row>
+        <ImageCard backgroundImage="assets/images/image-gallery-milkbottles.jpg" />
+        <ImageCard backgroundImage="assets/images/image-gallery-orange.jpg" />
+      </Row>
+      <Row>
+        <ImageCard backgroundImage="assets/images/image-gallery-cone.jpg" />
+        <ImageCard backgroundImage="assets/images/image-gallery-sugarcubes.jpg" />
+      </Row>
     </Section>
   );
 }
 
 const Section = styled.section`
   display: flex;
-  min-height: 450px;
+  flex-direction: column;
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
+`;
+
+const Row = styled.div`
+  display: flex;
+  flex: 1;
+  min-height: 175px;
+  @media (min-width: 1024px) {
+    min-height: 450px;
+  }
 `;
 
 export default ImagesSection;

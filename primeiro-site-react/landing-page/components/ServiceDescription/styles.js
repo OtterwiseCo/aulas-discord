@@ -3,14 +3,16 @@ import styled from "styled-components";
 export const Background = styled.div`
   background-color: white;
   overflow: hidden;
-  padding: 3rem;
   display: flex;
-  flex-direction: column;
   flex: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
 
   @media (min-width: 1024px) {
+    min-width: 50%;
     max-width: 50%;
-    padding: 5rem;
+    padding: 1rem;
   }
 `;
 
@@ -30,6 +32,8 @@ export const Description = styled.p`
   font-family: "Barlow", serif;
   color: rgba(0, 0, 0, 0.6);
   text-align: center;
+  line-height: 2;
+  font-size: 1.125rem;
 
   @media (min-width: 1024px) {
     text-align: left;
@@ -58,3 +62,14 @@ export const Link = styled.a(
   }
 `,
 );
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+
+  @media (min-width: 1024px) {
+    max-width: 450px;
+  }
+`;

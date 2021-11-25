@@ -20,13 +20,13 @@ export default function Home() {
         />
         <ImageCard
           backgroundImage="assets/images/egg.jpg"
-          minHeight={["335px", "unset"]}
+          minHeight={["335px", "43.75rem"]}
         />
       </Container>
       <Container flexDirectionMobile="column">
         <ImageCard
           backgroundImage="assets/images/stand-out.jpg"
-          minHeight={["335px", "unset"]}
+          minHeight={["335px", "43.75rem"]}
         />
         <ServiceDescription
           title="Stand out to the right audience"
@@ -35,13 +35,18 @@ export default function Home() {
           color="hsl(7deg 99% 70% / 46%)"
         />
       </Container>
-      <Container minHeight="469px">
+      <Container
+        minHeight={["unset", "469px"]}
+        flexDirectionMobile="column"
+        id="services"
+      >
         <ImageCard
           title="Graphic Design"
           description="Great designs makes you memorable. We deliver artwork tha underscores your brand message and captures potential client attention"
           backgroundImage="assets/images/graphic-design.jpg"
           color="hsl(167, 40%, 24%)"
           width={["100%", "unset"]}
+          minHeight={["550px", "800px"]}
         />
         <ImageCard
           title="Photography"
@@ -49,6 +54,7 @@ export default function Home() {
           backgroundImage="assets/images/photography.jpg"
           color="hsl(198, 62%, 26%)"
           width={["100%", "unset"]}
+          minHeight={["550px"]}
         />
       </Container>
       <TestimonialsSection />
@@ -62,9 +68,13 @@ const Container = styled.div(
   ({ minHeight, flexDirectionMobile }) => `
   display: flex;
   flex-wrap: wrap;
-  ${minHeight ? `min-height: ${minHeight}` : ""}
+  ${minHeight && minHeight[0] ? `min-height: ${minHeight[0]};` : ""}
   @media (max-width: 1024px) {
-    ${flexDirectionMobile ? `flex-direction: ${flexDirectionMobile}` : ""}
+    ${flexDirectionMobile ? `flex-direction: ${flexDirectionMobile};` : ""}
+  }
+
+  @media (min-width: 1024px) {
+    ${minHeight && minHeight[1] ? `min-height: ${minHeight[1]};` : ""}
   }
 `,
 );
