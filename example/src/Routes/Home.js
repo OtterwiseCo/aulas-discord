@@ -32,7 +32,7 @@ function Home() {
       <input defaultValue="" {...register("name")} />
       <input defaultValue="" {...register("lastName")} />
       <input type="submit" />
-      {JSON.stringify(data.data[0])}
+      {JSON.stringify(data?.data[0])}
     </form>
   );
 }
